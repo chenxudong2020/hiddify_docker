@@ -1,0 +1,7 @@
+#!/command/with-contenv sh
+if [ -z "${SUB_URL}" ]; then
+    echo "Error: $SUB_URL. Not starting HiddifyCli."
+    exit 1
+fi
+sed -i "s|\$WEB_SECRET|${WEB_SECRET}|g" ${BASE_PATH}/hiddify/hiddify.json
+exec ${BASE_PATH}/hiddify/HiddifyCli run -c $SUB_URL -d ${BASE_PATH}/hiddify/hiddify.json
