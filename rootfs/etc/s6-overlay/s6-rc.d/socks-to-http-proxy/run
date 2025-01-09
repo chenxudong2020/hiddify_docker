@@ -1,2 +1,0 @@
-#!/command/with-contenv sh
-exec ${BASE_PATH}/socks-to-http-proxy/sthp-linux --port 2335 --listen-ip 0.0.0.0 --socks-address 127.0.0.1:2334 --http-basic ${PROXY_USER}:${PROXY_PASS}

@@ -14,11 +14,11 @@ RUN apt-get update && apt-get install -y \
     curl \
     wget
 
-RUN mkdir -p /root/hiddify && cd /root/hiddify && wget --no-check-certificate -O hiddify_linux.tar.gz -c https://github.com/hiddify/hiddify-core/releases/download/v${HIDDIFY_VERSION}/hiddify-cli-linux-amd64.tar.gz \
-    && tar zxvf hiddify_linux.tar.gz && rm -rf hiddify_linux.tar.gz \
-    && mkdir -p /root/socks-to-http-proxy && cd /root/socks-to-http-proxy \
-    && wget --no-check-certificate -O sthp-linux -c https://github.com/KaranGauswami/socks-to-http-proxy/releases/download/${SOCKS5_TO_HTTP_PROXY_VERSION}/sthp-linux \
-    && chmod +x ./sthp-linux
+COPY --chmod=755 hiddify-cli-linux-amd64.tar.gz /
+
+RUN mkdir -p /root/hiddify && cd /root/hiddify && mv /hiddify-cli-linux-amd64.tar.gz /hiddify_linux.tar.gz \
+    && mv /hiddify_linux.tar.gz /root/hiddify \
+    && tar zxvf hiddify_linux.tar.gz && rm -rf hiddify_linux.tar.gz
 
 RUN mkdir -p /tmp/libs/ && \
     cp /lib/x86_64-linux-gnu/libgcc_s.so.1 /tmp/libs/
@@ -33,7 +33,6 @@ FROM busybox:stable-glibc
 COPY --chmod=755 ./rootfs /
 COPY --from=builder /tmp/libs/* /lib
 COPY --from=builder /root/hiddify /etc/s6-overlay/s6-rc.d/hiddify/
-COPY --from=builder /root/socks-to-http-proxy /etc/s6-overlay/s6-rc.d/socks-to-http-proxy/
 COPY --from=builder /etc/ssl/certs/ca-certificates.crt /etc/ssl/certs/
 
 ENV SUB_URL="" \

@@ -18,6 +18,7 @@
     "enable-clash-api": true,
     "clash-api-port": 6756,
     "web-secret": "$WEB_SECRET",
+    "clash-web-path" : "$BASE_PATH/hiddify/webui",
     "bypass-lan": true,
     "allow-connection-from-lan": true,
     "enable-fake-dns": false,
