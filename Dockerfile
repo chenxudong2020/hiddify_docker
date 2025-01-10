@@ -1,8 +1,5 @@
 FROM debian:buster-slim AS builder
 
-ARG HIDDIFY_VERSION=3.1.8
-ARG SOCKS5_TO_HTTP_PROXY_VERSION=0.5.0-beta2
-
 RUN apt-get update && apt-get install -y \
     ca-certificates \
     build-essential \
