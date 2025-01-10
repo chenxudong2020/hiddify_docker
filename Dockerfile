@@ -51,7 +51,6 @@ RUN wget -O /tmp/s6-overlay-noarch.tar.xz https://github.com/just-containers/s6-
 
 #代理端口
 EXPOSE 2334
-EXPOSE 2335
 #web端口
 EXPOSE 6756
 
