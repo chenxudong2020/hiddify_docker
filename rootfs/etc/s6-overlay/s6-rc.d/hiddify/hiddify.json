@@ -17,8 +17,8 @@
     "url-test-interval": 600,
     "enable-clash-api": true,
     "clash-api-port": 6756,
-    "web-secret": "$WEB_SECRET",
-    "clash-web-path" : "$BASE_PATH/hiddify/webui",
+    "web-secret": "${WEB_SECRET}",
+    "clash-web-path" : "${BASE_PATH}/hiddify/webui",
     "bypass-lan": true,
     "allow-connection-from-lan": true,
     "enable-fake-dns": false,
@@ -40,5 +40,9 @@
     "warp-clean-ip": "auto",
     "warp-port": 0,
     "warp-noise": "5-10",
-    "warp-noise-delay": "20-200"
+    "warp-noise-delay": "20-200",
+    "users": [ {
+        "Username": "${PROXY_USER}",
+        "Password": "${PROXY_PASS}"
+    }]
 }
