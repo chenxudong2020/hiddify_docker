@@ -1,5 +1,5 @@
 {
-    "region":"cn",
+    "region":"${REGION}",
     "service-mode": "proxy",
     "log-level": "info",
     "resolve-destination": true,
@@ -44,5 +44,13 @@
     "users": [ {
         "Username": "${PROXY_USER}",
         "Password": "${PROXY_PASS}"
-    }]
+    }],
+    "geosite-ads": "https://gh.api.99988866.xyz/https://raw.githubusercontent.com/hiddify/hiddify-geo/rule-set/block/geosite-category-ads-all.srs",
+    "geosite-malware": "https://gh.api.99988866.xyz/https://raw.githubusercontent.com/hiddify/hiddify-geo/rule-set/block/geosite-malware.srs",
+    "geosite-phishing": "https://gh.api.99988866.xyz/https://raw.githubusercontent.com/hiddify/hiddify-geo/rule-set/block/geosite-phishing.srs",
+    "geosite-cryptominers": "https://gh.api.99988866.xyz/https://raw.githubusercontent.com/hiddify/hiddify-geo/rule-set/block/geosite-cryptominers.srs",
+    "geoip-phishing": "https://gh.api.99988866.xyz/https://raw.githubusercontent.com/hiddify/hiddify-geo/rule-set/block/geoip-phishing.srs",
+    "geoip-malware": "https://gh.api.99988866.xyz/https://raw.githubusercontent.com/hiddify/hiddify-geo/rule-set/block/geoip-malware.srs",
+    "geoip-region": "https://gh.api.99988866.xyz/https://raw.githubusercontent.com/hiddify/hiddify-geo/rule-set/country/geoip-${REGION}.srs",
+    "geosite-region": "https://gh.api.99988866.xyz/https://raw.githubusercontent.com/hiddify/hiddify-geo/rule-set/country/geosite-${REGION}.srs"
 }

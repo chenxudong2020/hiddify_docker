@@ -1,7 +1,5 @@
 FROM debian:buster-slim AS builder
 
-ARG HIDDIFY_VERSION=3.1.8
-ARG SOCKS5_TO_HTTP_PROXY_VERSION=0.5.0-beta2
 
 RUN apt-get update && apt-get install -y \
     ca-certificates \
@@ -39,6 +37,7 @@ ENV SUB_URL="" \
  WEB_SECRET="hiddify" \
  PROXY_USER="hiddify" \
  PROXY_PASS="hiddify" \
+ REGION="cn" \
  BASE_PATH="/etc/s6-overlay/s6-rc.d" \
  S6_OVERLAY_VERSION="3.2.0.2"
 
@@ -54,7 +53,6 @@ RUN wget -O /tmp/s6-overlay-noarch.tar.xz https://github.com/just-containers/s6-
 
 #代理端口
 EXPOSE 2334
-EXPOSE 2335
 #web端口
 EXPOSE 6756
 
