@@ -4,7 +4,11 @@ docker run -itd --name hiddify --restart=always -p 6756:6756 -p 2334:2334 -e SUB
 
 SUB_URL Your airport subscription connection
 WEB_SECRET Your password for clashweb access page
-
+PROXY_USER proxy user default hiddify
+PROXY_PASS proxy password default hiddify
 
 Deployed, please visit http://docker host ip:6756/ui/ 
 2334 socks5 and http proxy share port with authentication
+
+![image](https://github.com/user-attachments/assets/05b91d66-8ff6-4bd0-9fa5-a5699a8c2b90)
+
